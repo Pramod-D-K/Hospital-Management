@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.*;
 public class patientController {
 
     patientService patientservice=new patientService();
+
     @PostMapping("/addViaBody")
     public String addViaBody(@RequestBody Patient patient){
         String ans = patientservice.addToDbViaBody(patient);
         return ans;
     }
 
-    @PostMapping("/addViaparam")
+    @PostMapping("/addViaParam")
     public String addViaParam(@RequestParam("id") int id,
                              @RequestParam("name") String name,
                              @RequestParam("age") int age,
@@ -28,7 +29,7 @@ public class patientController {
     }
 
     @GetMapping("/getViaPath/{id}/")
-    public Patient getViaPath(@RequestParam("id")Integer id){
+    public Patient getViaPath(@PathVariable("id")Integer id){
         return patientservice.getFromDbViaPath(id);
     }
 

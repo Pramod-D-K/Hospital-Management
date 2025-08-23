@@ -12,7 +12,7 @@ public class patientRepository {
     }
 
     public Patient getFromDb(Integer id, String name){
-        if(id<0){
+        if(id== null){
             for (Patient patient:patientDB.values()){
                 if(patient.getName().equals(name)){
                     return patient;
@@ -39,7 +39,7 @@ public class patientRepository {
         return name;
     }
     public String getYoungerPatient(){
-        int age=Integer.MIN_VALUE;
+        int age=Integer.MAX_VALUE;
         String name= "";
         for (Patient patient:patientDB.values()){
             if(patient.getAge()<age){
