@@ -7,40 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("patient")  //used to add some prefix to the url
+//@RequestMapping("v2")  //used to add some prefix to the url
 public class apiClass {
-
-    Map<Integer,Patient> patientDB = new HashMap<>();
-
-    //Using @RequestParam
-    @PostMapping("/addviaparam")
-    public String addviaparam(@RequestParam("id") int id,
-                                 @RequestParam("name") String name,
-                                 @RequestParam("age") int age,
-                                 @RequestParam("disease") String disease){
-        Patient p= new Patient(id,name,age,disease);
-        int key= id;
-        patientDB.put(id,p);
-        return "Patient info added via param";
-    }
-    @GetMapping("/getviaparam")
-    public Patient getviaparam(@RequestParam("id") Integer id){
-        Patient p1 = patientDB.get(id);
-        return p1;
-    }
-
-    //@RequestBody
-    @PostMapping("/addviabody")
-    public String addviabody(@RequestBody Patient patient){
-
-        Integer key = patient.getId();
-        patientDB.put(key,patient);
-        return "patient add via body";
-    }
-
-
-
-
     @GetMapping("getWeatherInfo")
     public String getWeatherinformation(){
         return "Hi, the temp is 21 degree and wind speed is 20km/hour "+
