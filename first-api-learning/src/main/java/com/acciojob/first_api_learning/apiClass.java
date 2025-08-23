@@ -7,43 +7,39 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-//@RequestMapping("v2")  //used to add some prefix to the url
+@RequestMapping(".patient")  //used to add some prefix to the url
 public class apiClass {
 
     Map<Integer,Patient> patientDB = new HashMap<>();
 
     //Using @RequestParam
-    @PostMapping("/addpatientdetails")
-    public String addpatientinfo(@RequestParam("id") int id,
+    @PostMapping("/addviaparam")
+    public String addviaparam(@RequestParam("id") int id,
                                  @RequestParam("name") String name,
                                  @RequestParam("age") int age,
                                  @RequestParam("disease") String disease){
         Patient p= new Patient(id,name,age,disease);
         int key= id;
         patientDB.put(id,p);
-        return "Patient info added";
+        return "Patient info added via param";
     }
-    @GetMapping("/getpatieninfo")
-    public Patient getPatienInfo(@RequestParam("id") Integer id){
+    @GetMapping("/getviaparam")
+    public Patient getviaparam(@RequestParam("id") Integer id){
         Patient p1 = patientDB.get(id);
         return p1;
     }
 
+    //@RequestBody
+    @PostMapping("/addviabody")
+    public String addviabody(@RequestBody Patient patient){
 
-    //using @RequestBody
-    @PostMapping("/addpatientDBviaRequestBody")
-    public String addinfoviaRequestBody(@RequestBody Patient patient){
         Integer key = patient.getId();
         patientDB.put(key,patient);
-        return "patient added to db";
+        return "patient add via body";
     }
-    //not possible
-    @GetMapping("/getPatientinfoviaRequestBody")
-    public Patient getPatientviabody(@RequestBody Patient id){
-        Integer key =patientDB.get(id).getId();
-        Patient patient= patientDB.get(key);
-        return patient;
-    }
+
+
+
 
     @GetMapping("getWeatherInfo")
 
