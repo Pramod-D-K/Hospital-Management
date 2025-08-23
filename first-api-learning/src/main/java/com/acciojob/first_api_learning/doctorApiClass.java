@@ -24,20 +24,32 @@ public class doctorApiClass {
         return "Doctor info added via param";
 
     }
-
-    @GetMapping("/getViaParam")
-    public Doctor getViaParam(@RequestParam("id") Integer id){
-        Doctor doctor= doctorDB.get(id);
-        return doctor;
-    }
-
     @PostMapping("/addViabody")
     public String addViaBody (@RequestBody Doctor doctor){
         Integer key = doctor.getId();
         doctorDB.put(key, doctor);
         return "doctor added via body";
     }
+    @GetMapping("/getViaParam")
+    public Doctor getViaParam(@RequestParam(value = "id", required = true) Integer id,
+                              @RequestParam(value = "name", required = false) String name){
+        if(name!=null){
+            for (Doctor doctor: doctorDB.values()){
+                if(doctor.getName().equals(name)){
+                    return doctor;
+                }
+            }
+        }
+        Doctor doctor= doctorDB.get(id);
+        return doctor;
+    }
 
+    @GetMapping("/getViaPath/{id}/{name}/")
+    public Doctor getViaPath(@PathVariable("id") Integer id,
+                             @PathVariable("name") String name){
+        Doctor doctor=doctorDB.get(id);
+        return doctor;
+    }
 
 
 
