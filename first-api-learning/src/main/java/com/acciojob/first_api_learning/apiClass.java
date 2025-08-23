@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(".patient")  //used to add some prefix to the url
+@RequestMapping("patient")  //used to add some prefix to the url
 public class apiClass {
 
     Map<Integer,Patient> patientDB = new HashMap<>();
@@ -42,7 +42,6 @@ public class apiClass {
 
 
     @GetMapping("getWeatherInfo")
-
     public String getWeatherinformation(){
         return "Hi, the temp is 21 degree and wind speed is 20km/hour "+
                 " humidity is  30% and feels good ";
