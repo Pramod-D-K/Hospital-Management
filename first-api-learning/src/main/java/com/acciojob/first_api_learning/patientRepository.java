@@ -1,6 +1,8 @@
 package com.acciojob.first_api_learning;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class patientRepository {
@@ -12,42 +14,25 @@ public class patientRepository {
     }
 
     public Patient getFromDb(Integer id, String name){
-        if(id== null){
-            for (Patient patient:patientDB.values()){
-                if(patient.getName().equals(name)){
-                    return patient;
-                }
-            }
-        }
         Integer key =id;
         return patientDB.get(key);
     }
 
-    public Patient getFromDb(Integer id){
-        return patientDB.get(id);
+//    public Patient getFromDb(Integer id){
+//        return patientDB.get(id);
+//    }
+
+    public List<Patient> getAllPatient(){
+        //short form
+        //return patientDB.values().stream().toList();
+
+        //long form
+        List<Patient>patientList = new ArrayList<>();
+        for (Patient patient:patientDB.values()){
+            patientList.add(patient);
+        }
+        return patientList;
     }
 
-    public String getOlderPatient(){
-        int age = 0;
-        String name = "";
-        for (Patient patient: patientDB.values()){
-            if(patient.getAge()>age){
-                age = patient.getAge();
-                name = patient.getName();
-            }
-        }
-        return name;
-    }
-    public String getYoungerPatient(){
-        int age=Integer.MAX_VALUE;
-        String name= "";
-        for (Patient patient:patientDB.values()){
-            if(patient.getAge()<age){
-                age = patient.getAge();
-                name= patient.getName();
-            }
-        }
-        return name;
-    }
 
 }

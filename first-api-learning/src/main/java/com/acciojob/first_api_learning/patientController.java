@@ -1,5 +1,8 @@
 package com.acciojob.first_api_learning;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,8 +32,13 @@ public class patientController {
     }
 
     @GetMapping("/getViaPath/{id}/")
-    public Patient getViaPath(@PathVariable("id")Integer id){
-        return patientservice.getFromDbViaPath(id);
+    public ResponseEntity getViaPath(@PathVariable("id")Integer id){
+
+        Patient patient= patientservice.getFromDbViaPath(id);
+        if(patient==null){
+            return new ResponseEntity("No valid patient fount",HttpStatus.BAD_REQUEST);
+        }
+        return  new ResponseEntity(patient, HttpStatus.OK);
     }
 
     @GetMapping("/getOlder")
