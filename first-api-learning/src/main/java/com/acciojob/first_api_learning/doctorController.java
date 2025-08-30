@@ -4,8 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.Doc;
-
 @RestController
 @RequestMapping("/doctor")
 public class doctorController {
@@ -56,5 +54,32 @@ public class doctorController {
         return  new ResponseEntity("Doctor not present in Db",HttpStatus.BAD_REQUEST);
     }
 
+    @DeleteMapping("deleteViaParamIdName")
+    public ResponseEntity deleteViaId(@RequestParam(value = "id",required = false)Integer id,
+                                      @RequestParam(value = "name", required = false)String name){
+        return new ResponseEntity(doctorservice.deleteByIdName(id,name),HttpStatus.OK);
 
+    }
+
+    @DeleteMapping("/deleteViaPath/{id}")
+    public ResponseEntity deleteViaPath(@PathVariable("id")Integer id){
+
+        return new ResponseEntity(doctorservice.deleteById(id),HttpStatus.OK);
+    }
+
+    @DeleteMapping("clear")
+    public ResponseEntity clearAll(){
+        return new ResponseEntity(doctorservice.clearAllFromDb(),HttpStatus.OK);
+    }
+
+    @PatchMapping("/updateViaPatch/{id}")
+    public String updateViaPatch(@PathVariable int id,
+                                 @RequestParam double exp){
+        return doctorservice.updateDbIdExp(id,exp);
+    }
+
+    @PutMapping("/updateViaPatchBody")
+    public ResponseEntity updateViaPatchBody(int id,Doctor doctor){
+        return new ResponseEntity(doctorservice.updateIdObj(id,doctor),HttpStatus.OK);
+    }
 }

@@ -41,7 +41,7 @@ public class Doctor {
         return exp;
     }
 
-    public void setExperience(double experience) {
+    public void setExp(double experience) {
         this.exp = experience;
     }
 

@@ -1,9 +1,5 @@
 package com.acciojob.first_api_learning;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
-import org.springframework.http.ResponseEntity;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class doctorService {
@@ -38,10 +34,31 @@ public class doctorService {
     public Doctor getDoctorByName(String name){
         List<Doctor>doctorList= doctorrepository.allDoctors();
         for(Doctor doctor:doctorList){
-            if(doctor.getName().equals(name)){
+            if(doctor.getName().equalsIgnoreCase(name)){
                 return doctor;
             }
         }
         return null;
+    }
+    public String deleteById(Integer id){
+        return doctorrepository.deleteById(id);
+    }
+    public String deleteByIdName(Integer id,String name){
+        if(id!=null){
+            return doctorrepository.deleteById(id);
+        }
+        return doctorrepository.deleteByName(name);
+    }
+
+    public String clearAllFromDb(){
+
+            return doctorrepository.clearDb();
+
+    }
+    public String updateDbIdExp(int id, double exp){
+        return doctorrepository.updateDb(id,exp);
+    }
+    public String updateIdObj(int id, Doctor doctor){
+        return doctorrepository.updateDb(id,doctor);
     }
 }
