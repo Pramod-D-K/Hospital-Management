@@ -3,14 +3,14 @@ package com.acciojob.first_api_learning;
 public class Doctor {
     private  int id;
     private String name;
-    private String specialist;
-    private double experience;
+    private String spc;
+    private double exp;
 
-    public Doctor(int id, String name, String specialist, double experience) {
+    public Doctor(int id, String name, String spc, double exp) {
         this.id = id;
         this.name = name;
-        this.specialist = specialist;
-        this.experience = experience;
+        this.spc = spc;
+        this.exp = exp;
     }
 
     public int getId() {
@@ -29,20 +29,20 @@ public class Doctor {
         this.name = name;
     }
 
-    public String getSpecialist() {
-        return specialist;
+    public String getSpc() {
+        return spc;
     }
 
-    public void setSpecialist(String specialist) {
-        this.specialist = specialist;
+    public void setSpc(String spc) {
+        this.spc = spc;
     }
 
-    public double getExperience() {
-        return experience;
+    public double getExp() {
+        return exp;
     }
 
     public void setExperience(double experience) {
-        this.experience = experience;
+        this.exp = experience;
     }
 
     @Override
@@ -50,8 +50,8 @@ public class Doctor {
         return "Doctor{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", specialist='" + specialist + '\'' +
-                ", experience=" + experience +
+                ", spc='" + spc + '\'' +
+                ", exp=" + exp +
                 '}';
     }
 }
