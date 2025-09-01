@@ -1,5 +1,6 @@
 package com.acciojob.first_api_learning;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/patient")
 public class patientController {
 
-    patientService patientservice=new patientService();
+//    patientService patientservice=new patientService();
+    @Autowired
+    private patientService patientservice;
 
     @PostMapping("/addViaBody")
     public String addViaBody(@RequestBody Patient patient){

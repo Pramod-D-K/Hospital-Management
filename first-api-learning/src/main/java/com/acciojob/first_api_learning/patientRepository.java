@@ -1,10 +1,13 @@
 package com.acciojob.first_api_learning;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class patientRepository {
     Map<Integer, Patient> patientDB=new HashMap();
     public String addToDB(Patient patient){

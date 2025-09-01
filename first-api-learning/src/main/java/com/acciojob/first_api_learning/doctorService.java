@@ -1,10 +1,15 @@
 package com.acciojob.first_api_learning;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+@Service
 public class doctorService {
 
-    doctorRepository doctorrepository = new doctorRepository();
+    //doctorRepository doctorrepository = new doctorRepository();
+    @Autowired
+    private doctorRepository doctorrepository;
     public String addToDbViaPAram(int id, String name,String spc,double exp){
         Doctor doctor=new Doctor(id,name,spc,exp);
         return doctorrepository.addToDb(doctor);

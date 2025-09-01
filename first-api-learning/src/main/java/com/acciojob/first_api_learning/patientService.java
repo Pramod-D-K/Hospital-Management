@@ -1,10 +1,14 @@
 package com.acciojob.first_api_learning;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
-
+@Service
 public class patientService {
-    patientRepository patientrepository = new patientRepository();
-
+//    patientRepository patientrepository = new patientRepository();
+    @Autowired
+    private patientRepository patientrepository;
     public String addToDbViaBody(Patient patient){
         return patientrepository.addToDB(patient);
     }

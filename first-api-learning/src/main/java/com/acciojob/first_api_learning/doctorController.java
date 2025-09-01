@@ -1,5 +1,6 @@
 package com.acciojob.first_api_learning;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/doctor")
 public class doctorController {
-    doctorService doctorservice = new doctorService();
-
-
+    //doctorService doctorservice = new doctorService();
+    @Autowired
+    private doctorService doctorservice;
     @PostMapping("/addViaParam")
     public ResponseEntity addViaParam(@RequestParam("id") int id,
                                       @RequestParam("name") String name,
