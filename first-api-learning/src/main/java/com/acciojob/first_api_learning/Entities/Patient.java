@@ -1,8 +1,14 @@
-package com.acciojob.first_api_learning;
+package com.acciojob.first_api_learning.Entities;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table
 public class Patient {
+    @Id
     private int id;
     private String name;
     private int age;

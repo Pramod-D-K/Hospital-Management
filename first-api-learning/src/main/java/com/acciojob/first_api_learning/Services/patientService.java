@@ -1,5 +1,7 @@
-package com.acciojob.first_api_learning;
+package com.acciojob.first_api_learning.Services;
 
+import com.acciojob.first_api_learning.Entities.Patient;
+import com.acciojob.first_api_learning.Repositories.patientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

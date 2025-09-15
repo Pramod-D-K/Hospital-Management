@@ -1,5 +1,6 @@
-package com.acciojob.first_api_learning;
+package com.acciojob.first_api_learning.Repositories;
 
+import com.acciojob.first_api_learning.Entities.Doctor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Map;
 public class doctorRepository {
 
 
-    Map<Integer,Doctor> doctorDb = new HashMap<>();
+    Map<Integer, Doctor> doctorDb = new HashMap<>();
 
     public String addToDb(Doctor doctor){
         Integer key = doctor.getId();

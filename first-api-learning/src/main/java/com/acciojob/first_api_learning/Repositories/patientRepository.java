@@ -1,5 +1,6 @@
-package com.acciojob.first_api_learning;
+package com.acciojob.first_api_learning.Repositories;
 
+import com.acciojob.first_api_learning.Entities.Patient;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

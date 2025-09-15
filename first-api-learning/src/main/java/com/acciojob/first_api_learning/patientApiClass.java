@@ -1,5 +1,6 @@
 package com.acciojob.first_api_learning;
 
+import com.acciojob.first_api_learning.Entities.Patient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Map;
 @RequestMapping("/patient")
 public class patientApiClass {
 
-    Map<Integer,Patient> patientDB = new HashMap<>();
+    Map<Integer, Patient> patientDB = new HashMap<>();
 
     //Using @RequestParam
     @PostMapping("/addViaParam")

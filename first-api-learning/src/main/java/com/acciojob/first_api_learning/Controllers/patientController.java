@@ -1,8 +1,9 @@
-package com.acciojob.first_api_learning;
+package com.acciojob.first_api_learning.Controllers;
 
+import com.acciojob.first_api_learning.Entities.Patient;
+import com.acciojob.first_api_learning.Services.patientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
