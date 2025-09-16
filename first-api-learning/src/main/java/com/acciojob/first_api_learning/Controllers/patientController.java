@@ -21,6 +21,6 @@ public class patientController {
     public Patient get(@RequestParam(value = "Id",required = false)int id,
                        @RequestParam(value = "name",required = false)String name){
 
-
+        return " ";
     }
 }
