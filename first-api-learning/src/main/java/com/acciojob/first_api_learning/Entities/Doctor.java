@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table
 @Setter
@@ -16,8 +18,13 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
+
+    @Column(nullable = false)
     private String name;
+
     private String spc;
-    private double exp;
+
+    @Column(scale = 1,precision = 5)
+    private BigDecimal exp;
 
 }

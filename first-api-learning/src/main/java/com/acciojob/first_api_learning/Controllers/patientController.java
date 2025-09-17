@@ -17,10 +17,5 @@ public class patientController {
     public  String add(@RequestBody Patient patient){
         return patientservice.add(patient);
     }
-    @GetMapping("/get")
-    public Patient get(@RequestParam(value = "Id",required = false)int id,
-                       @RequestParam(value = "name",required = false)String name){
 
-        return " ";
-    }
 }
