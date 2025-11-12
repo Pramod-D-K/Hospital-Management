@@ -10,6 +10,5 @@ import java.util.List;
 import java.util.Map;
 @Repository
 public interface doctorRepository extends JpaRepository<Doctor, Integer> {
-
 }
 
